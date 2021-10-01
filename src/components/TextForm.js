@@ -19,6 +19,7 @@ export default function TextForm(props) {
         setText(newText)
     }
 
+    // Below function doesn't work for more than one spaces.
     const handleTitleCase = () => {
         let newText = text.split(" ").map((currentValue) => {
             let newText = currentValue[0].toUpperCase() + currentValue.slice(1);
@@ -27,13 +28,13 @@ export default function TextForm(props) {
         setText(newText.join(" "));
     }
 
-    const capitalize = () => {
+    // const capitalize = () => {
         
-        let firstchar = text.charAt(0); // storing the first char of the string
-        let newText= firstchar.toUpperCase(); // converting that to uppercase
-        setText(newText+text.slice(1)); // printing it with rest excluding the first char by using slice
+    //     let firstchar = text.charAt(0); // storing the first char of the string
+    //     let newText= firstchar.toUpperCase(); // converting that to uppercase
+    //     setText(newText+text.slice(1)); // printing it with rest excluding the first char by using slice
 
-    }
+    // }
 
     const handleCopy = () => {
         let text = document.getElementById('myBox')
@@ -59,7 +60,7 @@ export default function TextForm(props) {
             <button className="btn btn-info" onClick={handleUpClick}>Convert to UpperCase</button>
             <button className="btn btn-info mx-2" onClick={handleLowClick}>Convert to LowerCase</button>
             <button className="btn btn-info" onClick={handleClear}>Clear Text</button>
-            <button className="btn btn-info mx-2" onClick={capitalize}>Title Case</button>
+            <button className="btn btn-info mx-2" onClick={handleTitleCase}>Title Case</button>
             <button className="btn btn-info mx-2" onClick={handleCopy}>Copy Text</button>
         </div>
         <div className="container my-3">
